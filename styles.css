@@ -1,4 +1,3 @@
-/* styles.css */
 :root {
     --color-primary: #0a0a0a;
     --color-secondary: #8b0000;
@@ -52,16 +51,14 @@ header {
 }
 
 .header-container {
-    display: inline-block;
-    justify-content: space-around;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin: 15px 15px;
 }
 
 .logo {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
 }
 
 .logo h1 {
@@ -148,7 +145,7 @@ nav a:hover:after {
 }
 
 .hero-content h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     color: var(--color-secondary);
@@ -255,30 +252,6 @@ nav a:hover:after {
     color: var(--color-light);
 }
 
-/* Menu Filters */
-.filters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.filter-btn {
-    padding: 0.5rem 1.5rem;
-    background: transparent;
-    border: 2px solid var(--color-secondary);
-    color: var(--color-light);
-    border-radius: 30px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.filter-btn.active, .filter-btn:hover {
-    background: var(--color-secondary);
-    color: var(--color-light);
-}
-
 /* Menu Items */
 .menu-items {
     display: grid;
@@ -360,21 +333,6 @@ nav a:hover:after {
     border-radius: 30px;
     background: #333;
     color: var(--color-light);
-}
-
-.tag.vegetarian {
-    background: #2d5a2d;
-    color: #a5d6a7;
-}
-
-.tag.vegan {
-    background: #1b5e20;
-    color: #c8e6c9;
-}
-
-.tag.gluten-free {
-    background: #5d4037;
-    color: #ffccbc;
 }
 
 /* Restaurant Info */
@@ -477,6 +435,15 @@ footer {
     border-top: 1px solid rgba(139, 0, 0, 0.3);
 }
 
+/* Menu Sections */
+.menu-section {
+    padding: 4rem 0;
+}
+
+.menu-section:nth-child(even) {
+    background: var(--color-accent);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .header-container {
@@ -486,6 +453,8 @@ footer {
 
     nav ul {
         gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .hero-content h2 {
