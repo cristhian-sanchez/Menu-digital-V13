@@ -1,38 +1,8 @@
-// script.js
 // Toggle theme functionality
 const themeToggle = document.getElementById('themeToggle');
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
     themeToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
-});
-
-// Filter functionality
-const filterButtons = document.querySelectorAll('.filter-btn');
-const menuItems = document.querySelectorAll('.menu-item');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        const filter = button.getAttribute('data-filter');
-        
-        menuItems.forEach(item => {
-            if (filter === 'all') {
-                item.style.display = 'block';
-            } else {
-                const categories = item.getAttribute('data-category').split(' ');
-                if (categories.includes(filter)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            }
-        });
-    });
 });
 
 // Smooth scrolling for navigation links
@@ -73,4 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.display = 'none';
         });
     });
+});
+
+// Efecto de scroll para el header
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(10, 10, 10, 0.95)';
+    } else {
+        header.style.background = 'var(--color-primary)';
+    }
 });
